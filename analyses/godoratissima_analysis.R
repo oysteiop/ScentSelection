@@ -419,10 +419,11 @@ str(summary_mat)
 library(fBasics)
 cols = divPalette(4, "Spectral")
 
-x11(height=5, width=5.5)
+cairo_pdf("figures/Figure1.pdf", height=5, width=5.5, family="Times")
+#x11(height=5, width=5.5)
 par(mfrow=c(1,1))
 plot(summary_mat$Altitude, summary_mat$Beta_PlantHeight, at=1:4, xlab="", xaxt="n", las=1, xlim=c(0,20), ylim=c(-.2, 1), col=cols, ylab="")
-mtext("Selection intensity", 2, line=2.5)
+mtext("Variance-scaled selection gradient", 2, line=2.5)
 par(new=T)
 plot(summary_mat$Altitude, summary_mat$Beta_InfLength, at=6:9, xlab="", xaxt="n", yaxt="n",las=1,xlim=c(0,20), ylim=c(-.2, 1), col=cols, ylab="")
 par(new=T)
@@ -433,6 +434,7 @@ axis(1, at=c(2.5, 7.5, 12.5, 17.5), c("Plant height", "Inf. length", "Flowers", 
 
 legend("topleft", legend=c("Lowland 2010", "Lowland 2011", "Mountains 2010", "Mountains 2011"), 
        pch=15, pt.cex = 1.5, col=cols, bty="n")
+dev.off()
 
 # Summary of selection gradients per compound ####
 XRRRData = indat[,10:31]
@@ -473,7 +475,9 @@ for(i in 1:nrow(meltmeans)){
 
 meltmeans$altitude = altvals
 
-x11(height=8, width=7)
+# Figure 2 ####
+cairo_pdf("figures/Figure2.pdf", height=7, width=6, family="Times")
+#x11(height=8, width=7)
 par(mfrow=c(2,1), mar=c(0,4,2,2))
 
 means = tapply(meltmeans$value, meltmeans$Var1, var)
@@ -485,7 +489,7 @@ plot(1:10, 1:10, col = "white", las=1, xaxt="n", ylab="", xlab="", xlim=c(0,22),
 points(meltmeans$Var1, meltmeans$value, pch=16,
        col = divPalette(4, "Spectral")[as.numeric(as.factor(meltmeans$altitude))], 
        las=1, xaxt="n", ylab="", xlab="")
-mtext("Selection gradient (%)", 2, line=2.5, cex=1)
+mtext("Mean-scaled selection gradient (%)", 2, line=2.5, cex=1)
 
 points(1:22, tapply(meltmeans$value, meltmeans$Var1, mean), pch=3)
 
@@ -503,6 +507,7 @@ mtext("Error-corrected SD (%)", 2, line=2.5, cex=1)
 axis(1, 1:22, labels=F)
 text(1:22, par("usr")[3] - 1.3, srt = 45, adj = 1,cex=.7,
      labels = gsub("Z","",gsub("_ngPerL","",levels(meltmeans$Var1))), xpd = TRUE)
+dev.off()
 
 # Posterior support per model ####
 post_supp = NULL

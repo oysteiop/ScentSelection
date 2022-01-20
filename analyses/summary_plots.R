@@ -62,6 +62,7 @@ mfdat
 hist(mfdat$cor)
 median(mfdat$cor_MR_RRR)
 mean(mfdat$cor_MR_RRR)
+range(mfdat$cor_MR_RRR)
 
 apply(mfdat[,-1], 2, mean)
 apply(mfdat[,-1], 2, median)
