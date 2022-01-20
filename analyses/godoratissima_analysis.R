@@ -493,8 +493,9 @@ mtext("Mean-scaled selection gradient (%)", 2, line=2.5, cex=1)
 points(1:22, tapply(meltmeans$value, meltmeans$Var1, mean), pch=3)
 
 abline(h=0)
-
-legend("topright", pch=16, legend=levels(as.factor(meltmeans$altitude)), col=divPalette(4, "Spectral"))
+leg = levels(as.factor(meltmeans$altitude))
+leg = c("Lowland 2010", "Lowland 2011", "Mountain 2010", "Mountain 2011") 
+legend("topright", pch=16, legend=leg, col=divPalette(4, "Spectral"))
 axis(1, 1:22, labels=F)
 #text(1:22, par("usr")[3] - 2, srt = 45, adj = 1,cex=.7,
 #     labels = gsub("Z","",gsub("_ngPerL","",levels(meltmeans$Var1))), xpd = TRUE)
@@ -504,8 +505,16 @@ par(mar=c(6,4,2,2))
 plot(1:22, sigmaC, pch=16, ylab="", xlab="", xaxt="n", las=1, ylim=c(-1, 15))
 mtext("Error-corrected SD (%)", 2, line=2.5, cex=1)
 axis(1, 1:22, labels=F)
+labs = gsub("Z","",gsub("_ngPerL","",levels(meltmeans$Var1)))
+
+labs = c("Eugenol", "6-methyl-5-hepten-2-one", "Heptanal", "Phenylacetaldehyde",
+         "beta-pinene",  "Styrene", "Benzaldehyde", "Limonene",
+         "1-phenyl-2,3-butanedione", "Geranyl acetone", "Phenylethylacetate",
+         "1-phenyl-1,2-propanedione", "Benzyl acetate", "Hexyl acetate",
+         "Sabinene", "Phenylethyl alcohol", "alpha-pinene", "(Z)-3-hexen-1-ol",
+         "Benzyl alcohol", "(Z)-3-hexenyl acetate", "Benzyl benzoate", "Methyl eugenol")
 text(1:22, par("usr")[3] - 1.3, srt = 45, adj = 1,cex=.7,
-     labels = gsub("Z","",gsub("_ngPerL","",levels(meltmeans$Var1))), xpd = TRUE)
+     labels = labs, xpd = TRUE)
 dev.off()
 
 # Posterior support per model ####
