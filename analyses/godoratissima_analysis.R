@@ -5,7 +5,6 @@
 # Gymnadenia odoratissima (Gross et al. 2016 Plos ONE)
 
 rm(list=ls())
-setwd("C:/data/SelectionRRR/")
 
 library(Hmsc)
 library(abind)
