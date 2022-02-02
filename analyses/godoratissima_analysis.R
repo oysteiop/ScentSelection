@@ -494,7 +494,7 @@ points(1:22, tapply(meltmeans$value, meltmeans$Var1, mean), pch=3)
 
 abline(h=0)
 leg = levels(as.factor(meltmeans$altitude))
-leg = c("Lowland 2010", "Lowland 2011", "Mountain 2010", "Mountain 2011") 
+leg = c("Lowland 2010", "Lowland 2011", "Mountains 2010", "Mountains 2011") 
 legend("topright", pch=16, legend=leg, col=divPalette(4, "Spectral"))
 axis(1, 1:22, labels=F)
 #text(1:22, par("usr")[3] - 2, srt = 45, adj = 1,cex=.7,
