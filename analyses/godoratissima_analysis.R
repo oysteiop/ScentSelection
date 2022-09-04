@@ -484,7 +484,7 @@ meltmeans$Var1 = factor(meltmeans$Var1, levels=names(sort(means, decreasing=T)))
 sigmaC = sigmaC[match(levels(meltmeans$Var1), names(sigmaC))]
 names(sigmaC)==levels(meltmeans$Var1)
 
-plot(1:10, 1:10, col = "white", las=1, xaxt="n", ylab="", xlab="", xlim=c(0,22), ylim=c(-20, 50))
+plot(1:10, 1:10, col = "white", las=1, xaxt="n", ylab="", xlab="", xlim=c(1,22), ylim=c(-20, 50))
 points(meltmeans$Var1, meltmeans$value, pch=16,
        col = divPalette(4, "Spectral")[as.numeric(as.factor(meltmeans$altitude))], 
        las=1, xaxt="n", ylab="", xlab="")
@@ -502,7 +502,7 @@ axis(1, 1:22, labels=F)
 
 par(mar=c(6,4,2,2))
 
-plot(1:22, sigmaC, pch=16, ylab="", xlab="", xaxt="n", las=1, ylim=c(-1, 15))
+plot(1:22, sigmaC, pch=16, ylab="", xlab="", xaxt="n", las=1, xlim=c(1,22), ylim=c(-1, 15))
 mtext("Error-corrected SD (%)", 2, line=2.5, cex=1)
 axis(1, 1:22, labels=F)
 labs = gsub("Z","",gsub("_ngPerL","",levels(meltmeans$Var1)))
