@@ -1,6 +1,8 @@
 # ScentSelection
 This repository contains the data and code used for the analyses of phenotypic selection on floral scent reported in Opedal, Ø.H., Gross, K., Chapurlat, E., Parachnowitsch, A., Joffard, N., Sletvold, N.', Ovaskainen, O. & Friberg, M. 2022. Measuring, comparing, and interpreting phenotypic selection on floral scent. Journal of Evolutionary Biology.
 
+<a href="https://zenodo.org/badge/latestdoi/248722670"><img src="https://zenodo.org/badge/248722670.svg" alt="DOI"></a>
+
 Data files are available in the 'data' folder, and analysis code in the 'analyses' folder. All data are from previously published studies, and further details about data collection and curation are available therein.
 
 Chapurlat, E., Ågren, J., Anderson, J., Friberg, M. & Sletvold, N. 2019. Conflicting selection on floral scent emission in the orchid Gymnadenia conopsea. New Phytol 222: 2009-2022.
